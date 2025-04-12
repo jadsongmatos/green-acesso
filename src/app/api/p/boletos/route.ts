@@ -9,7 +9,7 @@ const prisma = new PrismaClient()
 // Define the query parameters schema
 const querySchema = z.object({
   nome: z.string().optional(),
-  relatorio: z.number().optional(),
+  relatorio: z.string().optional().transform((val) => (val ? parseInt(val) : undefined)),
   valor_inicial: z.string()
     .optional()
     .transform((val) => (val ? parseFloat(val) : undefined))
