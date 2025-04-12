@@ -1,0 +1,49 @@
+{
+  "name": "green-acesso",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth/prisma-adapter": "^2.7.4",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.3",
+    "@mui/material": "^6.4.3",
+    "@mui/material-nextjs": "^6.4.3",
+    "@neondatabase/serverless": "^0.10.4",
+    "@prisma/adapter-neon": "^6.3.1",
+    "@prisma/client": "^6.2.1",
+    "@toolpad/core": "^0.12.0",
+    "@tus/file-store": "^1.5.1",
+    "@tus/server": "^1.10.2",
+    "@uppy/core": "^4.4.4",
+    "@uppy/dashboard": "^4.3.3",
+    "@uppy/react": "^4.2.3",
+    "@uppy/tus": "^4.2.2",
+    "dotenv": "^16.4.7",
+    "next": "15.3.0",
+    "next-auth": "^5.0.0-beta.25",
+    "papaparse": "^5.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/ws": "^8.5.14",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "prisma": "^6.2.1",
+    "typescript": "^5"
+  }
+}
