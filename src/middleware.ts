@@ -1,4 +1,7 @@
-import { auth } from "@/lib/auth"
+import NextAuth from "next-auth"
+import authConfig from "@/lib/auth.config"
+
+export const { auth } = NextAuth(authConfig)
 
 export default auth((req) => {
   console.log("middleware",req.nextUrl.pathname)
