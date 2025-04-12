@@ -45,7 +45,7 @@ export default function FilesList() {
                 />
                 <IconButton 
                   edge="end" 
-                  onClick={() => processFile(file.id)}
+                  onClick={() => processFile(file.id,file.type)}
                   color="primary"
                   disabled={file.status === 'processing' || file.status === 'completed'}
                 >

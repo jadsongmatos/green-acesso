@@ -22,7 +22,7 @@ export interface UppyContextType {
   files: UploadedFile[];
   addFile: (file: Omit<UploadedFile, "uploadedAt">) => void;
   removeFile: (id: string) => void;
-  processFile: (fileId: string) => Promise<void>;
+  processFile: (fileId: string, type: string) => Promise<void>;
 }
 
 const UppyContext = createContext<UppyContextType | undefined>(undefined);
@@ -62,11 +62,12 @@ export function UppyProvider({ children }: { children: ReactNode }) {
     setFiles((prev) => prev.filter((file) => file.id !== id));
   };
 
-  const processFile = async (fileId: string) => {
+  const processFile = async (fileId: string,type: string) => {
     try {
       updateFileStatus(fileId, 'processing');
-      
-      const response = await fetch("/api/p/process", {
+      const url = type === "csv" ? "/api/p/process/csv" : "/api/p/process/pdf";
+
+      const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

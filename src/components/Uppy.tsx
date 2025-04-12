@@ -25,7 +25,7 @@ export default function UppyDashboard() {
       response: { status: number; body?: Record<string, never>; uploadURL?: string; bytesUploaded?: number }
     ) => {
       if (file && response.uploadURL) {
-        console.log('File uploaded successfully:', file);
+        console.log('File uploaded successfully:', file,response.uploadURL);
         const url_obj = new URL(response.uploadURL);
         const path_parts = url_obj.pathname.split("/")
         const upload_id = path_parts[path_parts.length - 1];

@@ -88,7 +88,7 @@ model Authenticator {
 
 model Lote {
   id        Int      @id @default(autoincrement())
-  nome      String?
+  unidade   Int?     @unique
   ativo     Boolean
   criado_em DateTime @default(now())
   boletos   Boleto[]
