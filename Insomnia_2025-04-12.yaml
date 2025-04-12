@@ -1,0 +1,171 @@
+type: collection.insomnia.rest/5.0
+name: green-acesso
+meta:
+  id: wrk_57c7411245f1453fb4e2ec2ff1935a93
+  created: 1744438995280
+  modified: 1744438995280
+collection:
+  - url: http://localhost:3000/api/p/boletos
+    name: boletos
+    meta:
+      id: req_5b3ee740c3c649b5a2ad0ab975ffa82c
+      created: 1744439000828
+      modified: 1744439626588
+      isPrivate: false
+      sortKey: -1744439000828
+    method: GET
+    parameters:
+      - id: pair_8a76f51b30e348e48e3154754a3ece86
+        name: nome
+        value: JOSE
+        disabled: true
+      - id: pair_39843bc0149340db827529e0ea18e6f0
+        name: valor_inicial
+        value: "100"
+        disabled: true
+      - id: pair_c30107c236c44f6bad8763df07a04f65
+        name: valor_final
+        value: "200"
+        disabled: true
+      - id: pair_ed10e64b75154804bbe741fc50c7973c
+        name: id_lote
+        value: "2"
+        disabled: true
+      - id: pair_777dfde6e02b49c8a40d31461b084b21
+        name: relatorio
+        value: "1"
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/upload
+    name: Etapa 1 TUS - Criar upload
+    meta:
+      id: req_c9e42de28d71456ba491a72dfa2d36e3
+      created: 1744439709248
+      modified: 1744440012469
+      isPrivate: false
+      sortKey: -1744439709248
+    method: POST
+    headers:
+      - name: Tus-Resumable
+        value: 1.0.0
+        id: pair_8520c8c7e27f4b6f8e395a92ddb27c63
+      - name: Upload-Length
+        value: "166"
+        id: pair_9e58b4644796476bb3bcae513ac2ac79
+      - name: Upload-Metadata
+        value: filename Ym9sZXRvcy5jc3Y=
+        id: pair_71b8dd5cf1d74fb49bbfbd338e5da11b
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/upload/600b0b4ee977197199c56554be013bab
+    name: Etapa 2 TUS  - Upload do conteudo arquivo
+    meta:
+      id: req_8d5258aa88a2452183b37c8a587dca2a
+      created: 1744439817020
+      modified: 1744440373267
+      isPrivate: false
+      sortKey: -1744439817020
+    method: PATCH
+    body:
+      text: |-
+        nome;unidade;valor;linha_digitavel
+        JOSE DA SILVA;17;182.54;123456123456123456
+        MARCOS ROBERTO;18;178.20;123456123456123456
+        MARCIA CARVALHO;19;128.00;123456123456123456
+    headers:
+      - name: Content-Type
+        value: application/offset+octet-stream
+        id: pair_6a13757835274129af4efdc975c8b546
+      - name: Tus-Resumable
+        value: 1.0.0
+        id: pair_271e30caf0854265bc0ac4f3f80ad2c9
+      - name: Upload-Offset
+        value: "0"
+        id: pair_9bb386a23e194f718100bd3eeec7a81f
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/p/process/csv
+    name: Rota de processamento de CSV
+    meta:
+      id: req_6eddcf638a4c45808133ad2ab4d68f33
+      created: 1744440670119
+      modified: 1744440726481
+      isPrivate: false
+      sortKey: -1744440670119
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{"fileId":"2ef1316989172e23e0125ee296b5b894"}'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/p/process/pdf
+    name: Rota de processamento de PDF
+    meta:
+      id: req_4c25a02019d2411faa51c8a570d3f527
+      created: 1744440762142
+      modified: 1744440810601
+      isPrivate: false
+      sortKey: -1744440243569.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: '{"fileId":"e82fd16727670e6e78a809a29c28051d"}'
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_fae6e8cd961e413aa47648c29bc2e44c9f80f0a4
+    created: 1744438995283
+    modified: 1744438995283
+environments:
+  name: Base Environment
+  meta:
+    id: env_fae6e8cd961e413aa47648c29bc2e44c9f80f0a4
+    created: 1744438995282
+    modified: 1744438995282
+    isPrivate: false

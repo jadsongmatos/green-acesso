@@ -65,7 +65,8 @@ export function UppyProvider({ children }: { children: ReactNode }) {
   const processFile = async (fileId: string,type: string) => {
     try {
       updateFileStatus(fileId, 'processing');
-      const url = type === "csv" ? "/api/p/process/csv" : "/api/p/process/pdf";
+      console.log("processFile type",type)
+      const url = type === "text/csv" ? "/api/p/process/csv" : "/api/p/process/pdf";
 
       const response = await fetch(url, {
         method: "POST",
